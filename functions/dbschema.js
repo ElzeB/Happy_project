@@ -27,17 +27,17 @@ let db = {
           body: 'nice one mate!',
           createdAt: '2020-07-15T10:59:52.798Z'
         }
+      ],
+      notifications: [
+        {
+          recipient: 'user',
+          sender: 'john',
+          read: 'true | false',
+          screamId: 'kdjsfgdksuufhgkdsufky',
+          type: 'like | comment',
+          createdAt: '2019-03-15T10:59:52.798Z'
+        }
       ]
-    //   notifications: [
-    //     {
-    //       recipient: 'user',
-    //       sender: 'john',
-    //       read: 'true | false',
-    //       screamId: 'kdjsfgdksuufhgkdsufky',
-    //       type: 'like | comment',
-    //       createdAt: '2019-03-15T10:59:52.798Z'
-    //     }
-    //   ]
 };
 const userDetails = {
     // Redux data
@@ -51,14 +51,14 @@ const userDetails = {
       website: 'https://user.com',
       location: 'Lonodn, UK'
     },
-    // likes: [
-    //   {
-    //     userHandle: 'user',
-    //     screamId: 'hh7O5oWfWucVzGbHH2pa'
-    //   },
-    //   {
-    //     userHandle: 'user',
-    //     screamId: '3IOnFoQexRcofs5OhBXO'
-    //   }
-    // ]
+    likes: [
+      {
+        userHandle: 'user',
+        screamId: 'hh7O5oWfWucVzGbHH2pa'
+      },
+      {
+        userHandle: 'user',
+        screamId: '3IOnFoQexRcofs5OhBXO'
+      }
+    ]
   };
