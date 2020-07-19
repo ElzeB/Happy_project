@@ -1,0 +1,57 @@
+.fas {
+	color: #000000;
+	cursor: pointer;
+}
+
+.fa-bars {
+	left: 0;
+	position: relative;
+}
+
+.fa-search {
+	right: 0;
+	position: relative;
+}
+
+.header_search {
+	visibility: hidden;
+	opacity: 0;
+	position: relative;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	background-color: #ffffff;
+	text-decoration: none;
+	height: 60px;
+	top: 0px;
+	width: 100%;
+	right: 0px;
+	padding: 20px;
+	transition: all .5s ease;
+}
+
+.search_aerea {
+	border: none;
+	width: 100%;
+	outline: none;
+	font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, bold, sans-serif;
+	font-size: 18px;
+}
+
+.header_search_visible {
+	visibility: visible;
+	opacity: 1;
+}
+
+.logo {
+	font-size: 18px;
+	font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, bold, sans-serif;
+	letter-spacing: 0.5em;
+
+}
+
+@media screen and (max-width: 375px) {
+	.logo {
+		font-size: 15px;
+	}
+}
