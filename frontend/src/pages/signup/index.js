@@ -4,9 +4,10 @@ import AppIcon from "../../images/icon.png";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import "./index.css";
+//Redux stuff
 
-// import { connect } from 'react-redux';
-// import { signupUser } from '../redux/actions/userActions';
+import { connect } from 'react-redux';
+import { signupUser } from '../../redux/actions/userActions';
 
 class signup extends Component {
   constructor() {
@@ -35,31 +36,33 @@ class signup extends Component {
       confirmPassword: this.state.confirmPassword,
       handle: this.state.handle,
     };
-    axios.post('/signup', newUserData)
-    .then(res => {
-        console.log(res.data);
-        localStorage.setItem('FBidToken', `Bearer ${res.data.token}` );
-        this.setState({
-            loading: false
-        });
-        this.props.history.push('/');  
-    })
-    .catch(err => {
-        this.setState({
-            errors: err.response.data, 
-            loading: false
-        })
-    })
-    // this.props.signupUser(newUserData, this.props.history);
+    this.props.signupUser(newUserData, this.props.history);
   };
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
+  //   .then(res => {
+  //       console.log(res.data);
+  //       localStorage.setItem('FBidToken', `Bearer ${res.data.token}` );
+  //       this.setState({
+  //           loading: false
+  //       });
+  //       this.props.history.push('/');  
+  //   })
+  //   .catch(err => {
+  //       this.setState({
+  //           errors: err.response.data, 
+  //           loading: false
+  //       })
+  //   })
+  //   this.props.signupUser(newUserData, this.props.history);
+  // };
+
   render() {
-    const { classes } = this.props;
-    const { errors, loading } = this.state;
+    const { classes, UI: { loading }} = this.props;
+    const { errors } = this.state;
     return (
       <div>
         <div className="signup-container">
@@ -134,7 +137,7 @@ class signup extends Component {
             <button type="submit" class="btn btn-secondary">
               {" "}
               SignUp{" "}
-            </button>
+            </button> 
             {/* <Button
               type="submit"
               variant="contained"
@@ -170,8 +173,4 @@ const mapStateToProps = (state) => ({
   UI: state.UI,
 });
 
-
-
-export default signup;
-
-//   export default connect(mapStateToProps,{ signupUser })(signup);
+  export default connect(mapStateToProps,{ signupUser })(signup);

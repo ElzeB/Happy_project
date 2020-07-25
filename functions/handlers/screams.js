@@ -10,10 +10,12 @@ exports.getAllScreams = (req, res) => {
         screams.push({
           screamId: doc.id,
           body: doc.data().body,
+          hoverBody: doc.data().hoverBody,
           userHandle: doc.data().userHandle,
           createdAt: doc.data().createdAt,
           commentCount: doc.data().commentCount,
           likeCount: doc.data().likeCount,
+          firstImage: doc.data().firstImage,
           userImage: doc.data().userImage
         });
       });
@@ -32,8 +34,10 @@ exports.postOneScream = (req, res) => {
 
   const newScream = {
     body: req.body.body,
+    hoverBody: req.body.hoverBody,
     userHandle: req.user.handle,
     userImage: req.user.imageUrl,
+    firstImage: req.body.firstImage,
     createdAt: new Date().toISOString(),
     likeCount: 0,
     commentCount: 0

@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import AppIcon from "../../images/icon.png";
 import { Link } from "react-router-dom";
-import axios from 'axios';
 import "./index.css";
-
-// import { connect } from 'react-redux';
-// import { signupUser } from '../redux/actions/userActions';
+//Redux stuf
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/actions/userActions';
 
 class login extends Component {
   constructor() {
@@ -17,49 +16,33 @@ class login extends Component {
       errors: {},
     };
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) {
-      this.setState({ errors: nextProps.UI.errors });
+  componentWillReceiveProps(nextProps){
+    if(nextProps.UI.errors) {
+      this.setState({errors: nextProps.UI.errors});
     }
   }
+  
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-        loading: true
-    });
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
- axios.post('/login', userData)
-    .then(res => {
-        console.log(res.data);
-        localStorage.setItem('FBidToken', `Bearer ${res.data.token}` );
-        this.setState({
-            loading: false
-        });
-        this.props.history.push('/');  
-    })
-    .catch(err => {
-        this.setState({
-            errors: err.response.data, 
-            loading: false
-        })
-    })
+    this.props.loginUser(userData, this.props.history);
   }
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
-  };
+  }; 
 
   render() {
-    const { classes} = this.props;
-    const { errors, loading } = this.state;
+    const { classes, UI: {loading}} = this.props;
+    const { errors} = this.state;
     return (
-      <div>
+      <div className="login-wrap">
         <div className="login-container">
-          <img src={AppIcon} alt="monkey" />
+          <img src={AppIcon} alt="icon" />
           <h4>Login</h4>
           <form noValidate className="login-form " onSubmit={this.handleSubmit}>
             <input
@@ -136,10 +119,9 @@ login.propTypes = {
     UI: state.UI
   });
   
-//   const mapActionsToProps = {
-//     loginUser
-//   };
+  const mapActionsToProps = {
+    loginUser
+  };
 
-export default login;
+export default connect(mapStateToProps, mapActionsToProps)(login);
 
-//   export default connect(mapStateToProps,{ signupUser })(signup);

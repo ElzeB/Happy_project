@@ -7,6 +7,15 @@ body {
 }
 
 .container {
-  margin: 80px auto 0 auto;
-  max-width: 1200px;
+  margin: 60px 0 0 0;
+  width: 100%;
+  padding: 0;
+}
+
+.container-fluid {
+  margin-top: 0px;
+	position: absolute;
+	z-index: -1;
+  padding: 0; 
+ 
 }

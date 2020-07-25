@@ -15,9 +15,11 @@ let db = {
         {
             userHandle: 'user',
             body: 'this is the scream body',
+            hoverBody: 'this is hoverBody',
             createdAt: '2020-07-07T09:58:24.950Z',
             likeCount: 5,
-            commentCount: 2
+            commentCount: 2,
+            firstImage: 'https://firebasestorage.googleapis.com/v0/b/happyproject-8e44b.appspot.com/o/549196185240.jpg?alt=media'
         }
     ],
     comments: [

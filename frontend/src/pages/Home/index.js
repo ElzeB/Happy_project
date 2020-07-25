@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './index.css';
 
-import Scream from '../components/Scream/index.js';
+import Scream from '../../components/Scream';
+import Progress from '../../components/ProgressBar/index.js';
 
 class home extends Component {
     state = {
@@ -23,9 +25,13 @@ class home extends Component {
             this.state.screams.map(scream => <Scream scream={scream} />)
         ) :  <p>Loading...</p>
         return (
-            <div className="container-fluid">
-                <div class="row no-gutters">
-                    {recentScreamsMarkup}
+            <div>
+                <Progress done="100"/>
+
+                <div className="container-fluid">
+                    <div class="row no-gutters">
+                        {recentScreamsMarkup}
+                    </div>
                 </div>
             </div>
             // <Grid container>
