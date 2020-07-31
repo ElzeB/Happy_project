@@ -12,14 +12,13 @@
 	padding: 20px;
 }
 
-.header img {
+.logo-image {
 	width: 40px;
 	height: 40px;
 }
 
 .logo {
 	text-transform: uppercase;
-	left: 50%;
 	font-size: 18px;
 	font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, bold, sans-serif;
 	font-weight: bold;
@@ -28,8 +27,69 @@
 	text-decoration: underline black;
 }
 
+a:hover {
+	color: black;
+}
+
 @media screen and (max-width: 375px) {
-	#logo {
+	.logo {
+		font-size: 10px;
+	}
+
+	.logo-image {
+		width: 30px;
+		height: 30px;
+	}
+	.connections-links {
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		align-items: end;
+	}
+}
+@media screen and (max-width: 550px) {
+	.logo {
 		font-size: 15px;
 	}
+}
+
+@media screen and (max-width: 480px) {
+	.logo {
+		font-size: 12px;
+	}
+	.login-link {
+		font-size: 10px;
+	}
+	.signup-link {
+		font-size: 10px;
+	}
+}
+
+.navBar-right-component {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logout-icon {
+	width: 50px;
+	height: 50px;
+}
+
+.connections-links {
+	text-transform: uppercase;
+	font-size: 13px;
+	font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, bold, sans-serif;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	text-decoration: underline black;
+}
+
+.login-link {
+	margin-right: 15px;
+}
+
+a {
+	color: #000000;
 }

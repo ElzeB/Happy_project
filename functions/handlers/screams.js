@@ -84,6 +84,7 @@ exports.getScream = (req, res) => {
       res.status(500).json({ error: err.code });
     });
 };
+
 // Comment on a comment
 exports.commentOnScream = (req, res) => {
   if (req.body.body.trim() === '')

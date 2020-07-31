@@ -3,26 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-import ProfileSkeleton from "../../util/ProfileSkeleton";
-
-// // MUI stuff
-// import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
-// import MuiLink from '@material-ui/core/Link';
-// import Paper from '@material-ui/core/Paper';
-// // Icons
-// import LocationOn from '@material-ui/icons/LocationOn';
-// import LinkIcon from '@material-ui/icons/Link';
-// import CalendarToday from '@material-ui/icons/CalendarToday';
-// import EditIcon from '@material-ui/icons/Edit';
-// import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 //Redux
 import { connect } from "react-redux";
 import { logoutUser, uploadImage } from "../../redux/actions/userActions";
-
-const styles = (theme) => ({
-  ...theme,
-});
 
 class Profile extends Component {
   handleImageChange = (event) => {
@@ -50,7 +33,6 @@ class Profile extends Component {
     let profileMarkup = 
       authenticated ? (
         <div className="user-info">
-           <div className="user-handle">@{handle}</div>
             <div className="image-wrapper">
               <img src={imageUrl} alt="profile" className="profile-image" onClick={this.handleEditPicture} />
               <input
@@ -60,13 +42,10 @@ class Profile extends Component {
                 onChange={this.handleImageChange}
               />
             </div>
-           
-            {/* <button tip="Logout" onClick={this.handleLogout}></button> */}
         </div>
       ) : (
       <Link to = "/login" />
     )   
-
     return profileMarkup;
   }
 }

@@ -43,29 +43,13 @@ class signup extends Component {
       [event.target.name]: event.target.value
     });
   };
-  //   .then(res => {
-  //       console.log(res.data);
-  //       localStorage.setItem('FBidToken', `Bearer ${res.data.token}` );
-  //       this.setState({
-  //           loading: false
-  //       });
-  //       this.props.history.push('/');  
-  //   })
-  //   .catch(err => {
-  //       this.setState({
-  //           errors: err.response.data, 
-  //           loading: false
-  //       })
-  //   })
-  //   this.props.signupUser(newUserData, this.props.history);
-  // };
 
   render() {
     const { classes, UI: { loading }} = this.props;
     const { errors } = this.state;
     return (
-      <div>
-        <div className="signup-container">
+      <div className="signup-container"> 
+        <div className="signup-wraper">
           <img src={AppIcon} alt="monkey" />
           <h4>Sign Up</h4>
           <form noValidate className="signup-form " onSubmit={this.handleSubmit}>
@@ -77,8 +61,7 @@ class signup extends Component {
               name="email"
               type="email"
               label="Email"
-              // className={classes.textField}
-              helperText={errors.email}
+              small={errors.email}
               error={errors.email ? true : false}
               value={this.state.email}
               onChange={this.handleChange}
@@ -92,8 +75,7 @@ class signup extends Component {
               name="password"
               type="password"
               label="Password"
-              //   className={classes.textField}
-              helperText={errors.password}
+              small={errors.password}
               error={errors.password ? true : false}
               value={this.state.password}
               onChange={this.handleChange}
@@ -107,8 +89,7 @@ class signup extends Component {
               name="confirmPassword"
               type="password"
               label="Confirm Password"
-              //   className={classes.textField}
-              helperText={errors.confirmPassword}
+              small={errors.confirmPassword}
               error={errors.confirmPassword ? true : false}
               value={this.state.confirmPassword}
               onChange={this.handleChange}
@@ -122,35 +103,20 @@ class signup extends Component {
               name="handle"
               type="text"
               label="Handle"
-              //   className={classes.textField}
-              helperText={errors.handle}
+              small={errors.handle}
               error={errors.handle ? true : false}
               value={this.state.handle}
               onChange={this.handleChange}
               fullWidth
             />
-            {/* {errors.general && (
-              <Typography variant="body2" className={classes.customError}>
+            {errors.general && (
+              <div className="customError">
                 {errors.general}
-              </Typography>
-            )} */}
-            <button type="submit" class="btn btn-secondary">
-              {" "}
-              SignUp{" "}
-            </button> 
-            {/* <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              disabled={loading}
-            >
+              </div>
+            )}
+            <button type="submit" className="btn btn-secondary">
               SignUp
-              {loading && (
-                <CircularProgress size={30} className={classes.progress} />
-              )}
-            </Button> */}
-
+            </button> 
             <h6>
               Already have an account ? Login <Link to="/login">here</Link>
             </h6>

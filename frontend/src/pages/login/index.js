@@ -30,6 +30,7 @@ class login extends Component {
     };
     this.props.loginUser(userData, this.props.history);
   }
+  
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -37,7 +38,6 @@ class login extends Component {
   }; 
 
   render() {
-    const { classes, UI: {loading}} = this.props;
     const { errors} = this.state;
     return (
       <div className="login-wrap">
@@ -49,56 +49,36 @@ class login extends Component {
               className="form-control border-bottom"
               type="text"
               placeholder="Email"
-              id="email"
               name="email"
               type="email"
               label="Email"
-              // className={classes.textField}
               small={errors.email} 
               error={errors.email ? true : false}
               value={this.state.email}
               onChange={this.handleChange}
-              fullWidth
             />
             <input
               className="form-control border-bottom"
               type="text"
               placeholder="Password"
-              id="password"
               name="password"
               type="password"
               label="Password"
-              //   className={classes.textField}
-              helperText={errors.password}
+              small={errors.password}
               error={errors.password ? true : false}
               value={this.state.password}
               onChange={this.handleChange}
-              fullWidth
             />
-            {/* {errors.general && (
-              <Typography variant="body2" className={classes.customError}>
+            {errors.general && (
+              <div  className="customError">
                 {errors.general}
-              </Typography>
-            )} */}
-            <button type="submit" class="btn btn-secondary">
-              {" "}
-              Login{" "}
+              </div>
+            )}
+            <button type="submit" className="btn btn-secondary">
+              Login
             </button>
-            {/* <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              disabled={loading}
-            >
-              SignUp
-              {loading && (
-                <CircularProgress size={30} className={classes.progress} />
-              )}
-            </Button> */}
-
             <h6>
-            dont have an account ? sign up <Link to="/signup">here</Link>
+            Dont have an account ? Sign up <Link to="/signup">here</Link>
             </h6>
           </form>
         </div>

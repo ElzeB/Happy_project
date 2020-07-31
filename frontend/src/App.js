@@ -17,7 +17,7 @@ import AuthRoute from './util/AuthRoute';
 import home from './pages/Home';
 import login from './pages/login/index.js';
 import signup from './pages/signup/index.js';
-import user from './pages/user';
+import openScream from './pages/openScream/index.js'
 
 const token = localStorage.FBIdToken;
 if(token) {
@@ -43,7 +43,7 @@ class App extends Component {
               <Route exact path="/" component={home} />
               <AuthRoute exact path="/signup" component={signup} />
               <AuthRoute exact path="/login" component={login} />
-              <Route exact path="/content/:movieId" />
+              <Route exact path="/scream/:screamId" component={openScream} />
             </Switch>
           </div>
         </Router>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import './index.css';
-
 import Scream from '../../components/Scream';
 import Progress from '../../components/ProgressBar/index.js';
+import axios from 'axios';
+import './index.css';
 
 class home extends Component {
     state = {
@@ -13,7 +12,7 @@ class home extends Component {
         axios
         .get('/screams') 
         .then (res => {
-            console.log(res.data);
+            // console.log(res.data);
             this.setState({
                 screams: res.data
             });
@@ -27,32 +26,12 @@ class home extends Component {
         return (
             <div>
                 <Progress done="100"/>
-
                 <div className="container-fluid">
-                    <div class="row no-gutters">
+                    <div className="row no-gutters">
                         {recentScreamsMarkup}
                     </div>
                 </div>
             </div>
-            // <Grid container>
-            //     <Grid container item sm={8} xs={8}>
-            //         <Grid item sm={4} xs={6}>
-            //             {recentScreamsMarkup}
-            //         </Grid>
-                    /* <Grid item sm={4} xs={6}>
-                        <p>Content....</p>
-                    </Grid>
-                    <Grid item sm={4} xs={6}>
-                        <p>Content....</p>
-                    </Grid>
-                    <Grid item sm={4} xs={6}>
-                        <p>Content....</p>
-                    </Grid> */
-            //     </Grid>
-            //     <Grid item sm={4} xs={4}>
-            //         <p>Profile....</p>
-            //     </Grid>
-            // </Grid>
         )
     }
 }
