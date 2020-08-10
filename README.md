@@ -1,3 +1,3 @@
 # Happy_project
 
-React create App based project telling personal hobbies story. NTBD.
+Create React App based project telling personal hobbies story. NTBD.
